@@ -1,5 +1,6 @@
 package com.example.metselcalculator;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -20,6 +21,7 @@ public class MainActivity2 extends AppCompatActivity {
     private TextView metselcement;
     private TextView stenen;
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,9 +61,6 @@ public class MainActivity2 extends AppCompatActivity {
         float aantalM2InputF = Float.parseFloat(String.valueOf(aantalMInput));
         boolean stootvoegInputB = Boolean.parseBoolean(String.valueOf(stootvoegInput)); */
 
-        //defining variables for the upcoming if statements
-
-
 
         //calculations
 
@@ -69,7 +68,7 @@ public class MainActivity2 extends AppCompatActivity {
         float stootvoeg = ((lagenmaatF/1000)*(lagenmaatF-hoogteSteenF)/1000)*(muurdikteF/1000);
         float aantalstenen = (1000/lengteSteenF)*(1000/lagenmaatF)*aantalM2F;
         float benodigdMetselzand;
-        if (stootvoegB == "ja"){
+        if (stootvoegB.equals("ja")){
             benodigdMetselzand = (float) (((lintvoeg + stootvoeg) * 1.1) * aantalstenen);
 
     }
@@ -80,7 +79,7 @@ public class MainActivity2 extends AppCompatActivity {
         float benodigdMetselCement =  (benodigdMetselzand*250)/25;
         float aantalStenen2 = (float) (aantalstenen*1.03);
         float benodigdVoegzand;
-        if(stootvoegB =="ja"){
+        if(stootvoegB.equals("ja")){
             benodigdVoegzand = (float) (((lintvoeg+stootvoeg)*1.2)*aantalstenen*0.15);
 }
         else{
