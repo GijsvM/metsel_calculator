@@ -1,18 +1,19 @@
 package com.example.metselcalculator;
 
 import android.os.Bundle;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity2 extends AppCompatActivity {
 
-    private TextView lengteSteenInput;
-    private TextView muurdikteInput;
-    private TextView hoogteSteenInput;
-    private TextView lagenmaatInput;
-    private TextView stootvoegInput;
-    private TextView aantalMInput;
+    private EditText lengteSteenInput;
+    private EditText muurdikteInput;
+    private EditText hoogteSteenInput;
+    private EditText lagenmaatInput;
+    private EditText stootvoegInput;
+    private EditText aantalMInput;
     private TextView metselzand;
     private TextView voegzand;
     private TextView portlandcement;
