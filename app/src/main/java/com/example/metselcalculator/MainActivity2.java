@@ -3,6 +3,8 @@ package com.example.metselcalculator;
 import android.annotation.SuppressLint;
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
+
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.widget.EditText;
@@ -16,7 +18,7 @@ import java.math.RoundingMode;
 @RequiresApi(api = Build.VERSION_CODES.N)
 public class MainActivity2 extends AppCompatActivity {
 
-    private static final DecimalFormat df = new DecimalFormat("0.00");
+    //private static final DecimalFormat df = new DecimalFormat("0,00");
 
     private EditText lengteSteenInput;
     private EditText muurdikteInput;
@@ -93,28 +95,33 @@ public class MainActivity2 extends AppCompatActivity {
 
         float benodigdMetselCement =  (benodigdMetselzand*250)/25;
         float aantalStenen2 = (float) (aantalstenen*1.03);
-        float benodigdVoegzand;
+        float benodigdVoegzand = 0;
         if(stootvoegB.equals("ja")){
             benodigdVoegzand = (float) (((lintvoeg+stootvoeg)*1.2)*aantalstenen*0.15);
 }
-        else{
+        else if(stootvoegB.equals("nee")){
             benodigdVoegzand = (float) ((lintvoeg*1.2)*aantalstenen*0.15);
     }
+        else{
+            Intent intent =  new Intent(MainActivity2.this, MainActivity3.class);
+            startActivity(intent);
+        }
         float benodigdPortlandCement = (benodigdVoegzand*250)/25;
 
         //rounding the numbers
-        df.setRoundingMode(RoundingMode.UP);
-        float benodigdMetselzand2 = Float.parseFloat(df.format(benodigdMetselzand));
-        float benodigdVoegzand2 = Float.parseFloat(df.format(benodigdVoegzand));
+       // df.setRoundingMode(RoundingMode.UP);
+        //float benodigdMetselzand2 = Float.parseFloat(df.format(benodigdMetselzand));
+        //float benodigdVoegzand2 = Float.parseFloat(df.format(benodigdVoegzand));
         int benodigdPortlandcement2 = (int) Math.ceil(benodigdPortlandCement);
         int benodigdMetselCement2 = (int) Math.ceil(benodigdMetselCement);
         int aantalStenen1 = (int) Math.ceil(aantalStenen2);
 
 
+
         //print the numbers to the screen
 
-        metselzand.setText(Float.toString(benodigdMetselzand2));
-        voegzand.setText(Float.toString(benodigdVoegzand2));
+        metselzand.setText(Float.toString(benodigdMetselzand));
+        voegzand.setText(Float.toString(benodigdVoegzand));
         portlandcement.setText(Integer.toString(benodigdPortlandcement2));
         metselcement.setText(Integer.toString(benodigdMetselCement2));
         stenen.setText(Integer.toString(aantalStenen1));
