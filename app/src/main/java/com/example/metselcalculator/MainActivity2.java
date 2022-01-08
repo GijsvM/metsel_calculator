@@ -18,7 +18,7 @@ import java.math.RoundingMode;
 @RequiresApi(api = Build.VERSION_CODES.N)
 public class MainActivity2 extends AppCompatActivity {
 
-    //private static final DecimalFormat df = new DecimalFormat("0,00");
+    //private static final DecimalFormat df = new DecimalFormat("#.##");
 
     private EditText lengteSteenInput;
     private EditText muurdikteInput;
@@ -109,19 +109,21 @@ public class MainActivity2 extends AppCompatActivity {
         float benodigdPortlandCement = (benodigdVoegzand*250)/25;
 
         //rounding the numbers
-       // df.setRoundingMode(RoundingMode.UP);
+        //df.setRoundingMode(RoundingMode.UP);
         //float benodigdMetselzand2 = Float.parseFloat(df.format(benodigdMetselzand));
         //float benodigdVoegzand2 = Float.parseFloat(df.format(benodigdVoegzand));
         int benodigdPortlandcement2 = (int) Math.ceil(benodigdPortlandCement);
         int benodigdMetselCement2 = (int) Math.ceil(benodigdMetselCement);
         int aantalStenen1 = (int) Math.ceil(aantalStenen2);
+        double benodigdMetselzand2 = Math.ceil(benodigdMetselzand * 100) / 100;
+        double benodigdVoegzand2 = Math.ceil(benodigdVoegzand * 100) / 100;
 
 
 
         //print the numbers to the screen
 
-        metselzand.setText(Float.toString(benodigdMetselzand));
-        voegzand.setText(Float.toString(benodigdVoegzand));
+        metselzand.setText(Float.toString((float) benodigdMetselzand2));
+        voegzand.setText(Float.toString((float) benodigdVoegzand2));
         portlandcement.setText(Integer.toString(benodigdPortlandcement2));
         metselcement.setText(Integer.toString(benodigdMetselCement2));
         stenen.setText(Integer.toString(aantalStenen1));
