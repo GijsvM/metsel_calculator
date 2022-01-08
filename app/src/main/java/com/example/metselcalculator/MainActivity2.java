@@ -18,8 +18,6 @@ import java.math.RoundingMode;
 @RequiresApi(api = Build.VERSION_CODES.N)
 public class MainActivity2 extends AppCompatActivity {
 
-    //private static final DecimalFormat df = new DecimalFormat("#.##");
-
     private EditText lengteSteenInput;
     private EditText muurdikteInput;
     private EditText hoogteSteenInput;
@@ -62,23 +60,6 @@ public class MainActivity2 extends AppCompatActivity {
         float aantalM2F = bundle.getFloat("aantalm2");
         String stootvoegB = bundle.getString("stootvoeg");
 
-      /*  lengteSteenInput.setText(String.valueOf(lengteSteenF));
-        muurdikteInput.setText(String.valueOf(muurdikteF));
-        hoogteSteenInput.setText(String.valueOf(hoogteSteenF));
-        lagenmaatInput.setText(String.valueOf(lagenmaatF));
-        aantalMInput.setText(String.valueOf(aantalM2F));
-        stootvoegInput.setText(String.valueOf(stootvoegB)); */
-
-        //string -> float
-
-        /*float lengteSteenInputF = Float.parseFloat(String.valueOf(lengteSteenInput));
-        float muurdikteInputF = Float.parseFloat(String.valueOf(muurdikteInput));
-        float hoogteSteenInputF = Float.parseFloat(String.valueOf(hoogteSteenInput));
-        float lagenmaatInputF = Float.parseFloat(String.valueOf(lagenmaatInput));
-        float aantalM2InputF = Float.parseFloat(String.valueOf(aantalMInput));
-        boolean stootvoegInputB = Boolean.parseBoolean(String.valueOf(stootvoegInput)); */
-
-
         //calculations
 
         float lintvoeg = ((lengteSteenF/1000)*(lagenmaatF-hoogteSteenF)/1000)*(muurdikteF/1000);
@@ -109,9 +90,7 @@ public class MainActivity2 extends AppCompatActivity {
         float benodigdPortlandCement = (benodigdVoegzand*250)/25;
 
         //rounding the numbers
-        //df.setRoundingMode(RoundingMode.UP);
-        //float benodigdMetselzand2 = Float.parseFloat(df.format(benodigdMetselzand));
-        //float benodigdVoegzand2 = Float.parseFloat(df.format(benodigdVoegzand));
+
         int benodigdPortlandcement2 = (int) Math.ceil(benodigdPortlandCement);
         int benodigdMetselCement2 = (int) Math.ceil(benodigdMetselCement);
         int aantalStenen1 = (int) Math.ceil(aantalStenen2);
@@ -127,10 +106,5 @@ public class MainActivity2 extends AppCompatActivity {
         portlandcement.setText(Integer.toString(benodigdPortlandcement2));
         metselcement.setText(Integer.toString(benodigdMetselCement2));
         stenen.setText(Integer.toString(aantalStenen1));
-
-
-
-
-
 
 }}
