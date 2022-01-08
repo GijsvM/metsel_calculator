@@ -108,7 +108,7 @@ public class MainActivity2 extends AppCompatActivity {
         float benodigdVoegzand2 = Float.parseFloat(df.format(benodigdVoegzand));
         int benodigdPortlandcement2 = (int) Math.ceil(benodigdPortlandCement);
         int benodigdMetselCement2 = (int) Math.ceil(benodigdMetselCement);
-        float aantalStenen1 = (float) Math.ceil(aantalStenen2);
+        int aantalStenen1 = (int) Math.ceil(aantalStenen2);
 
 
         //print the numbers to the screen
@@ -117,7 +117,7 @@ public class MainActivity2 extends AppCompatActivity {
         voegzand.setText(Float.toString(benodigdVoegzand2));
         portlandcement.setText(Integer.toString(benodigdPortlandcement2));
         metselcement.setText(Integer.toString(benodigdMetselCement2));
-        stenen.setText(Float.toString(aantalStenen1));
+        stenen.setText(Integer.toString(aantalStenen1));
 
 
 
