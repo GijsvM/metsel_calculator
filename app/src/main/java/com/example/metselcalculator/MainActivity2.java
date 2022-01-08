@@ -1,13 +1,22 @@
 package com.example.metselcalculator;
 
 import android.annotation.SuppressLint;
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
+import android.os.Build;
 import android.os.Bundle;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.math.RoundingMode;
+
+@RequiresApi(api = Build.VERSION_CODES.N)
 public class MainActivity2 extends AppCompatActivity {
+
+    private static final DecimalFormat df = new DecimalFormat("0.00");
 
     private EditText lengteSteenInput;
     private EditText muurdikteInput;
@@ -93,13 +102,22 @@ public class MainActivity2 extends AppCompatActivity {
     }
         float benodigdPortlandCement = (benodigdVoegzand*250)/25;
 
+        //rounding the numbers
+        df.setRoundingMode(RoundingMode.UP);
+        float benodigdMetselzand2 = Float.parseFloat(df.format(benodigdMetselzand));
+        float benodigdVoegzand2 = Float.parseFloat(df.format(benodigdVoegzand));
+        float benodigdPortlandcement2 = (float) Math.ceil(benodigdPortlandCement);
+        float benodigdMetselCement2 = (float) Math.ceil(benodigdMetselCement);
+        float aantalStenen1 = (float) Math.ceil(aantalStenen2);
+
+
         //print the numbers to the screen
 
-        metselzand.setText(Float.toString(benodigdMetselzand));
-        voegzand.setText(Float.toString(benodigdVoegzand));
-        portlandcement.setText(Float.toString(benodigdPortlandCement));
-        metselcement.setText(Float.toString(benodigdMetselCement));
-        stenen.setText(Float.toString(aantalStenen2));
+        metselzand.setText(Float.toString(benodigdMetselzand2));
+        voegzand.setText(Float.toString(benodigdVoegzand2));
+        portlandcement.setText(Float.toString(benodigdPortlandcement2));
+        metselcement.setText(Float.toString(benodigdMetselCement2));
+        stenen.setText(Float.toString(aantalStenen1));
 
 
 
