@@ -106,8 +106,8 @@ public class MainActivity2 extends AppCompatActivity {
         df.setRoundingMode(RoundingMode.UP);
         float benodigdMetselzand2 = Float.parseFloat(df.format(benodigdMetselzand));
         float benodigdVoegzand2 = Float.parseFloat(df.format(benodigdVoegzand));
-        float benodigdPortlandcement2 = (float) Math.ceil(benodigdPortlandCement);
-        float benodigdMetselCement2 = (float) Math.ceil(benodigdMetselCement);
+        int benodigdPortlandcement2 = (int) Math.ceil(benodigdPortlandCement);
+        int benodigdMetselCement2 = (int) Math.ceil(benodigdMetselCement);
         float aantalStenen1 = (float) Math.ceil(aantalStenen2);
 
 
@@ -115,8 +115,8 @@ public class MainActivity2 extends AppCompatActivity {
 
         metselzand.setText(Float.toString(benodigdMetselzand2));
         voegzand.setText(Float.toString(benodigdVoegzand2));
-        portlandcement.setText(Float.toString(benodigdPortlandcement2));
-        metselcement.setText(Float.toString(benodigdMetselCement2));
+        portlandcement.setText(Integer.toString(benodigdPortlandcement2));
+        metselcement.setText(Integer.toString(benodigdMetselCement2));
         stenen.setText(Float.toString(aantalStenen1));
 
 
