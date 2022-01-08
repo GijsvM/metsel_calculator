@@ -38,6 +38,12 @@ public class MainActivity2 extends AppCompatActivity {
         stootvoegInput = findViewById(R.id.stootvoegInput);
         aantalMInput = findViewById(R.id.aantalMInput);
 
+        metselzand = findViewById(R.id.metselzand);
+        voegzand = findViewById(R.id.voegzand);
+        portlandcement = findViewById(R.id.portlandcement);
+        metselcement = findViewById(R.id.metselcement);
+        stenen = findViewById(R.id.stenen);
+
         float lengteSteenF = bundle.getFloat("lengtesteen");
         float muurdikteF = bundle.getFloat("muurdikte");
         float hoogteSteenF = bundle.getFloat("hoogtesteen");
