@@ -35,11 +35,75 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        lengteSteenInput = (EditText) findViewById(R.id.lengteSteenInput);
+        muurdikteInput = (EditText) findViewById(R.id.muurdikteInput);
+        hoogteSteenInput = (EditText) findViewById(R.id.hoogteSteenInput);
+        lagenmaatInput = (EditText) findViewById(R.id.lagenmaatInput);
+        stootvoegInput = (EditText) findViewById(R.id.stootvoegInput);
+        aantalMInput = (EditText) findViewById(R.id.aantalMInput);
+        aantalStenenInput = (EditText) findViewById(R.id.aantalStenenInput);
 
         berekenButton = (Button) findViewById(R.id.berekenButton);
         berekenButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                if (TextUtils.isEmpty(lengteSteenInput.getText().toString())){
+                    lengteSteenInput.setError("vul aub alles in");
+                    return;
+                }
+                if (TextUtils.isEmpty(muurdikteInput.getText().toString())){
+                    muurdikteInput.setError("vul aub alles in");
+                    return;
+                }
+                if (TextUtils.isEmpty(hoogteSteenInput.getText().toString())){
+                    hoogteSteenInput.setError("vul aub alles in");
+                    return;
+                }
+                if (TextUtils.isEmpty(lagenmaatInput.getText().toString())){
+                    lagenmaatInput.setError("vul aub alles in");
+                    return;
+                }
+
+                if (TextUtils.isEmpty(aantalMInput.getText().toString())){
+                    aantalMInput.setError("vul aub een 0 in");
+                    return;
+                }
+                if (TextUtils.isEmpty(aantalStenenInput.getText().toString())){
+                    aantalStenenInput.setError("vul aub een 0 in");
+                    return;
+                }
+                if (TextUtils.isEmpty(stootvoegInput.getText().toString())){
+                    stootvoegInput.setError("vul ja of nee in");
+                    return;
+                }
+
+
+                if (lengteSteenInput.getText().toString().contains(",")){
+                    lengteSteenInput.setError("verander de , in een .");
+                    return;
+                }
+                if (muurdikteInput.getText().toString().contains(",")){
+                    muurdikteInput.setError("verander de , in een .");
+                    return;
+                }
+                if (hoogteSteenInput.getText().toString().contains(",")){
+                    hoogteSteenInput.setError("verander de , in een .");
+                    return;
+                }
+                if (lagenmaatInput.getText().toString().contains(",")){
+                    lagenmaatInput.setError("verander de , in een .");
+                    return;
+                }
+                if (aantalMInput.getText().toString().contains(",")){
+                    aantalMInput.setError("verander de , in een .");
+                    return;
+                }
+                if (aantalStenenInput.getText().toString().contains(",")){
+                    aantalStenenInput.setError("verander de , in een .");
+                    return;
+                }
+
 
                 openMainActivity2();
             }

@@ -87,11 +87,8 @@ public class MainActivity2 extends AppCompatActivity {
             float benodigdVoegzand = 0;
             if (stootvoegB.equals("ja")) {
                 benodigdVoegzand = (float) (((lintvoeg + stootvoeg) * 1.2) * aantalstenen * 0.15);
-            } else if (stootvoegB.equals("nee")) {
+            } else{
                 benodigdVoegzand = (float) ((lintvoeg * 1.2) * aantalstenen * 0.15);
-            } else {
-                Intent intent = new Intent(MainActivity2.this, MainActivity3.class);
-                startActivity(intent);
             }
             float benodigdPortlandCement = (benodigdVoegzand * 250) / 25;
 
@@ -131,11 +128,8 @@ public class MainActivity2 extends AppCompatActivity {
             float benodigdVoegzand = 0;
             if (stootvoegB.equals("ja")) {
                 benodigdVoegzand = (float) (((lintvoeg + stootvoeg) * 1.2) * aantalStenenF * 0.15);
-            } else if (stootvoegB.equals("nee")) {
-                benodigdVoegzand = (float) ((lintvoeg * 1.2) * aantalStenenF * 0.15);
             } else {
-                Intent intent = new Intent(MainActivity2.this, MainActivity3.class);
-                startActivity(intent);
+                benodigdVoegzand = (float) ((lintvoeg * 1.2) * aantalStenenF * 0.15);
             }
             float benodigdPortlandCement = (benodigdVoegzand * 250) / 25;
 
