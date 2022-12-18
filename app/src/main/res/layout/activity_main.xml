@@ -26,7 +26,7 @@
             android:layout_height="wrap_content"
 
             android:layout_marginStart="10dp"
-            android:layout_marginTop="25dp"
+            android:layout_marginTop="15dp"
             android:text="muurdikte:"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             app:layout_constraintStart_toStartOf="parent"
@@ -37,7 +37,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:layout_marginTop="25dp"
+            android:layout_marginTop="15dp"
             android:text="hoogte steen:"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             app:layout_constraintStart_toStartOf="parent"
@@ -48,7 +48,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:layout_marginTop="25dp"
+            android:layout_marginTop="15dp"
             android:text="lagenmaat:"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             app:layout_constraintStart_toStartOf="parent"
@@ -59,7 +59,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:layout_marginTop="25dp"
+            android:layout_marginTop="15dp"
             android:text="aantal m2:"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             app:layout_constraintStart_toStartOf="parent"
@@ -67,81 +67,84 @@
 
         <EditText
             android:id="@+id/aantalMInput"
-            android:layout_width="170dp"
-            android:layout_height="45dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="10dp"
+            android:layout_width="120dp"
+            android:layout_height="32dp"
+            android:layout_marginTop="13dp"
+            android:layout_marginEnd="60dp"
             android:ems="10"
             android:hint="m2"
             android:inputType="numberSigned"
-            android:text="0"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textSize="11sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/stootvoegInput"
-            tools:text="0" />
+            app:layout_constraintTop_toBottomOf="@+id/stootvoegInput" />
 
         <EditText
             android:id="@+id/lagenmaatInput"
-            android:layout_width="170dp"
-            android:layout_height="45dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="10dp"
+            android:layout_width="120dp"
+            android:layout_height="32dp"
+            android:layout_marginTop="13dp"
+            android:layout_marginEnd="60dp"
             android:ems="10"
             android:hint="mm"
             android:inputType="numberSigned"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textSize="11sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/hoogteSteenInput" />
 
         <EditText
             android:id="@+id/lengteSteenInput"
-            android:layout_width="170dp"
-            android:layout_height="45dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="10dp"
+            android:layout_width="120dp"
+            android:layout_height="32dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="60dp"
             android:ems="10"
             android:hint="mm"
             android:inputType="numberSigned"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textSize="11sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
             android:id="@+id/muurdikteInput"
-            android:layout_width="170dp"
-            android:layout_height="45dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="10dp"
+            android:layout_width="120dp"
+            android:layout_height="32dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="60dp"
             android:ems="10"
             android:hint="mm"
             android:inputType="numberSigned"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textSize="11sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/lengteSteenInput" />
 
         <EditText
             android:id="@+id/hoogteSteenInput"
-            android:layout_width="170dp"
-            android:layout_height="45dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="10dp"
+            android:layout_width="120dp"
+            android:layout_height="32dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="60dp"
             android:ems="10"
             android:hint="mm"
             android:inputType="numberSigned"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textSize="11sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/muurdikteInput" />
 
         <Button
             android:id="@+id/berekenButton"
-            android:layout_width="149dp"
-            android:layout_height="82dp"
+            android:layout_width="95dp"
+            android:layout_height="41dp"
             android:layout_marginStart="131dp"
             android:layout_marginTop="84dp"
             android:layout_marginEnd="131dp"
             android:text="Bereken!"
+            android:textSize="11sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/aantalMInput" />
 
@@ -150,7 +153,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:layout_marginTop="25dp"
+            android:layout_marginTop="15dp"
             android:text="stootvoeg vol?"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             app:layout_constraintStart_toStartOf="parent"
@@ -158,13 +161,14 @@
 
         <EditText
             android:id="@+id/stootvoegInput"
-            android:layout_width="170dp"
-            android:layout_height="45dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="10dp"
+            android:layout_width="120dp"
+            android:layout_height="32dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="60dp"
             android:ems="10"
             android:hint="ja / nee"
             android:inputType="textPersonName"
+            android:textSize="11sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/lagenmaatInput" />
 
@@ -173,7 +177,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:layout_marginTop="25dp"
+            android:layout_marginTop="15dp"
             android:text="aantal stenen:"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textSize="22sp"
@@ -182,18 +186,196 @@
 
         <EditText
             android:id="@+id/aantalStenenInput"
-            android:layout_width="170dp"
-            android:layout_height="45dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="10dp"
+            android:layout_width="120dp"
+            android:layout_height="32dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="60dp"
             android:ems="10"
             android:hint="aantal"
             android:inputType="numberSigned"
-            android:text="0"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textSize="11sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/aantalMInput"
-            tools:text="0" />
+            app:layout_constraintTop_toBottomOf="@+id/aantalMInput" />
+
+        <TextView
+            android:id="@+id/hoeveelMetselzand"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="120dp"
+            android:text="hoeveel metselzand(10% verlies):"
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView8" />
+
+        <TextView
+            android:id="@+id/hoeveelVoegzand"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="20dp"
+            android:text="hoeveelheid voegzand(20% verlies):"
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/aantalStenen" />
+
+        <TextView
+            android:id="@+id/zakkenMetselCement"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="20dp"
+            android:text="benodigde zakken metselcement:"
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/hoeveelMetselzand" />
+
+        <TextView
+            android:id="@+id/aantalStenen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="20dp"
+            android:text="aantal stenen(3% verlies):"
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/zakkenMetselCement" />
+
+        <TextView
+            android:id="@+id/zakkenPortland"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="20dp"
+            android:text="benodigde zakken portlandcement:"
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/hoeveelVoegzand" />
+
+        <TextView
+            android:id="@+id/metselzand"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="120dp"
+            android:layout_marginEnd="70dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView8" />
+
+        <TextView
+            android:id="@+id/voegzand"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="70dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/stenen" />
+
+        <TextView
+            android:id="@+id/portlandcement"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="21dp"
+            android:layout_marginEnd="70dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/voegzand" />
+
+        <TextView
+            android:id="@+id/metselcement"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="22dp"
+            android:layout_marginEnd="70dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/metselzand" />
+
+        <TextView
+            android:id="@+id/stenen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="22dp"
+            android:layout_marginEnd="70dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/metselcement" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="120dp"
+            android:layout_marginEnd="30dp"
+            android:text="m3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView8" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="22dp"
+            android:layout_marginEnd="30dp"
+            android:text="st"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="22dp"
+            android:layout_marginEnd="30dp"
+            android:text="st"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="30dp"
+            android:text="m3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="21dp"
+            android:layout_marginEnd="30dp"
+            android:text="st"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+        <TextView
+            android:id="@+id/oppervlakte2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="21dp"
+            android:layout_marginEnd="70dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/portlandcement" />
+
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="21dp"
+            android:layout_marginEnd="30dp"
+            android:text="m2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
+        <TextView
+            android:id="@+id/aantalOppervlakte"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="20dp"
+            android:text="aantal m2 muur:"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/zakkenPortland" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </RelativeLayout>
