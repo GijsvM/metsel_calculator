@@ -2,8 +2,6 @@ package com.example.metselcalculator;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -11,9 +9,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import java.text.BreakIterator;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -153,190 +148,208 @@ public class MainActivity extends AppCompatActivity {
 
                 calculate();
                 saveData();
-                loadData();
-                updateViews();
-            }
 
-            public void saveData() {
-
-                SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
-                SharedPreferences.Editor editor = sharedPreferences.edit();
-
-                editor.putString(LENGTESTEEN, lengteSteenInput.getText().toString());
-                editor.putString(MUURDIKTE, muurdikteInput.getText().toString());
-                editor.putString(HOOGTESTEEN, hoogteSteenInput.getText().toString());
-                editor.putString(LAGENMAAT, lagenmaatInput.getText().toString());
-                editor.putString(AANTALM, aantalMInput.getText().toString());
-                editor.putString(AANTALSTENEN, aantalStenenInput.getText().toString());
-                editor.putString(METSELCEMENT, metselcement.getText().toString());
-                editor.putString(VOEGZAND, voegzand.getText().toString());
-                editor.putString(PORTLANDCEMENT, portlandcement.getText().toString());
-                editor.putString(METSELZAND, metselzand.getText().toString());
-                editor.putString(STENEN, stenen.getText().toString());
-                editor.putString(OPPERVLAKTE, oppervlakte2.getText().toString());
-                editor.putString(STOOTVOEG, stootvoegB);
-
-                editor.apply();
-
-
-
-                //float lengteSteenStr = Float.parseFloat(lengteSteenInput.getText().toString());
-                //float muurdikteStr = Float.parseFloat(muurdikteInput.getText().toString());
-                //float hoogteSteenStr = Float.parseFloat(hoogteSteenInput.getText().toString());
-                //float lagenmaatStr = Float.parseFloat(lagenmaatInput.getText().toString());
-                //String stootvoegStr = stootvoegInput.getText().toString();
-                //float aantalMStr = Float.parseFloat(aantalMInput.getText().toString());
-                //float aantalStenenStr = Float.parseFloat(aantalStenenInput.getText().toString());
-                //float metselzandStr = Float.parseFloat(metselzand.getText().toString());
-                //float voegzandStr = Float.parseFloat(voegzand.getText().toString());
-                //float portlandcementStr = Float.parseFloat(portlandcement.getText().toString());
-                //float metselcementStr = Float.parseFloat(metselcement.getText().toString());
-                //float stenenStr = Float.parseFloat(stenen.getText().toString());
-                //float oppervlakteStr = Float.parseFloat(oppervlakte2.getText().toString());
-//
-                //editor.putFloat("lengteSteenInput", lengteSteenStr);
-                //editor.putFloat("muurdikteInput", muurdikteStr);
-                //editor.putFloat("hoogteSteenInput", hoogteSteenStr);
-                //editor.putFloat("lagenmaatInput", lagenmaatStr);
-                //editor.putFloat("aantalMInput", aantalMStr);
-                //editor.putFloat("aantalStenenInput", aantalStenenStr);
-                //editor.putFloat("metselzand", metselzandStr);
-                //editor.putFloat("voegzand", voegzandStr);
-                //editor.putFloat("portlandcement", portlandcementStr);
-                //editor.putFloat("metselcement", metselcementStr);
-                //editor.putFloat("stenen", stenenStr);
-                //editor.putFloat("oppervlakte2", oppervlakteStr);
-                //editor.putString("stootvoegInput", stootvoegStr);
-                //editor.commit();
-                //Toast.makeText(MainActivity.this, "Info Opgeslagen", Toast.LENGTH_LONG).show();
-            }
-
-            public void loadData() {
-                SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
-                lengtesteen = sharedPreferences.getString(LENGTESTEEN, "");
-                muurdikte = sharedPreferences.getString(MUURDIKTE, "");
-                hoogtesteen = sharedPreferences.getString(HOOGTESTEEN, "");
-                lagenmaat = sharedPreferences.getString(LAGENMAAT, "");
-                aantalm = sharedPreferences.getString(AANTALM, "0");
-                aantalstenen = sharedPreferences.getString(AANTALSTENEN, "0");
-                metselcementP = sharedPreferences.getString(METSELCEMENT, "");
-                voegzandP = sharedPreferences.getString(VOEGZAND, "");
-                portlandcementP = sharedPreferences.getString(PORTLANDCEMENT, "");
-                metselzandP = sharedPreferences.getString(METSELZAND, "");
-                stenenP = sharedPreferences.getString(STENEN, "");
-                oppervlakteP = sharedPreferences.getString(OPPERVLAKTE, "");
-                stootvoegP = sharedPreferences.getString(STOOTVOEG, "");
-
-            }
-            public void updateViews() {
-                lengteSteenInput.setText(lengtesteen);
-            }
-
-            public void calculate() {
-                lengteSteenInput = (EditText) findViewById(R.id.lengteSteenInput);
-                muurdikteInput = (EditText) findViewById(R.id.muurdikteInput);
-                hoogteSteenInput = (EditText) findViewById(R.id.hoogteSteenInput);
-                lagenmaatInput = (EditText) findViewById(R.id.lagenmaatInput);
-                stootvoegInput = (EditText) findViewById(R.id.stootvoegInput);
-                aantalMInput = (EditText) findViewById(R.id.aantalMInput);
-                aantalStenenInput = (EditText) findViewById(R.id.aantalStenenInput);
-
-                float lengteSteenF = Float.parseFloat(lengteSteenInput.getText().toString());
-                float muurdikteF =  Float.parseFloat(muurdikteInput.getText().toString());
-                float hoogteSteenF =  Float.parseFloat(hoogteSteenInput.getText().toString());
-                float lagenmaatF =  Float.parseFloat(lagenmaatInput.getText().toString());
-                float aantalM2F =  Float.parseFloat(aantalMInput.getText().toString());
-                String stootvoegB = stootvoegInput.getText().toString();
-                float aantalStenenF = Float.parseFloat(aantalStenenInput.getText().toString());
-
-                //calculations
-                //float oppervlakte = (aantalStenenF / (1000 / lagenmaatF) * (1000 / lengteSteenF));
-                float lintvoeg = ((lengteSteenF / 1000) * (lagenmaatF - hoogteSteenF) / 1000) * (muurdikteF / 1000);
-                float stootvoeg = ((lagenmaatF / 1000) * (lagenmaatF - hoogteSteenF) / 1000) * (muurdikteF / 1000);
-
-                if (aantalM2F > 0) {
-                    float aantalstenen = (1000 / lengteSteenF) * (1000 / lagenmaatF) * aantalM2F;
-
-                    float benodigdMetselzand;
-                    if (stootvoegB.equals("ja")) {
-                        benodigdMetselzand = (float) (((lintvoeg + stootvoeg) * 1.1) * aantalstenen);
-
-                    } else {
-                        benodigdMetselzand = (float) ((lintvoeg * 1.1) * aantalstenen);
-                    }
-
-                    float benodigdMetselCement = (benodigdMetselzand * 250) / 25;
-                    float aantalStenen2 = (float) (aantalstenen * 1.03);
-                    float benodigdVoegzand = 0;
-                    if (stootvoegB.equals("ja")) {
-                        benodigdVoegzand = (float) (((lintvoeg + stootvoeg) * 1.2) * aantalstenen * 0.15);
-                    } else{
-                        benodigdVoegzand = (float) ((lintvoeg * 1.2) * aantalstenen * 0.15);
-                    }
-                    float benodigdPortlandCement = (benodigdVoegzand * 250) / 25;
-
-                    //rounding the numbers
-
-                    int benodigdPortlandcement2 = (int) Math.ceil(benodigdPortlandCement);
-                    int benodigdMetselCement2 = (int) Math.ceil(benodigdMetselCement);
-                    int aantalStenen1 = (int) Math.ceil(aantalStenen2);
-                    double benodigdMetselzand2 = Math.ceil(benodigdMetselzand * 100) / 100;
-                    double benodigdVoegzand2 = Math.ceil(benodigdVoegzand * 100) / 100;
-                    //double oppervlakte1 = Math.ceil(oppervlakte * 100) / 100;
-
-
-                    //print the numbers to the screen
-
-                    metselzand.setText(Float.toString((float) benodigdMetselzand2));
-                    voegzand.setText(Float.toString((float) benodigdVoegzand2));
-                    portlandcement.setText(Integer.toString(benodigdPortlandcement2));
-                    metselcement.setText(Integer.toString(benodigdMetselCement2));
-                    stenen.setText(Integer.toString(aantalStenen1));
-                    oppervlakte2.setText(Float.toString((float) aantalM2F));
-
-                } else {
-                    //float aantalstenen = (1000 / lengteSteenF) * (1000 / lagenmaatF) * aantalM2F;
-                    float oppervlakte = aantalStenenF / ((1000 / lagenmaatF) * (1000 / lengteSteenF));
-
-                    float benodigdMetselzand;
-                    if (stootvoegB.equals("ja")) {
-                        benodigdMetselzand = (float) (((lintvoeg + stootvoeg) * 1.1) * aantalStenenF);
-
-                    } else {
-                        benodigdMetselzand = (float) ((lintvoeg * 1.1) * aantalStenenF);
-                    }
-
-                    float benodigdMetselCement = (benodigdMetselzand * 250) / 25;
-                    float aantalStenen2 = (float) (aantalStenenF * 1.03);
-                    float benodigdVoegzand = 0;
-                    if (stootvoegB.equals("ja")) {
-                        benodigdVoegzand = (float) (((lintvoeg + stootvoeg) * 1.2) * aantalStenenF * 0.15);
-                    } else {
-                        benodigdVoegzand = (float) ((lintvoeg * 1.2) * aantalStenenF * 0.15);
-                    }
-                    float benodigdPortlandCement = (benodigdVoegzand * 250) / 25;
-
-                    //rounding the numbers
-
-                    int benodigdPortlandcement2 = (int) Math.ceil(benodigdPortlandCement);
-                    int benodigdMetselCement2 = (int) Math.ceil(benodigdMetselCement);
-                    int aantalStenenF2 = (int) ((int) aantalStenenF*1.03);
-                    int aantalStenenF3 = (int) Math.ceil(aantalStenenF2);
-                    double benodigdMetselzand2 = Math.ceil(benodigdMetselzand * 100) / 100;
-                    double benodigdVoegzand2 = Math.ceil(benodigdVoegzand * 100) / 100;
-                    double oppervlakte1 = Math.ceil(oppervlakte * 100) / 100;
-
-
-                    //print the numbers to the screen
-
-                    metselzand.setText(Float.toString((float) benodigdMetselzand2));
-                    voegzand.setText(Float.toString((float) benodigdVoegzand2));
-                    portlandcement.setText(Integer.toString(benodigdPortlandcement2));
-                    metselcement.setText(Integer.toString(benodigdMetselCement2));
-                    stenen.setText(Integer.toString(aantalStenenF3));
-                    oppervlakte2.setText(Float.toString((float) oppervlakte1));
-                }
             }
         });
-        }}
+
+
+        loadData();
+        updateViews();
+
+    }
+
+
+    public void saveData() {
+
+        SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+
+        editor.putString(LENGTESTEEN, lengteSteenInput.getText().toString());
+        editor.putString(MUURDIKTE, muurdikteInput.getText().toString());
+        editor.putString(HOOGTESTEEN, hoogteSteenInput.getText().toString());
+        editor.putString(LAGENMAAT, lagenmaatInput.getText().toString());
+        editor.putString(AANTALM, aantalMInput.getText().toString());
+        editor.putString(AANTALSTENEN, aantalStenenInput.getText().toString());
+        editor.putString(METSELCEMENT, metselcement.getText().toString());
+        editor.putString(VOEGZAND, voegzand.getText().toString());
+        editor.putString(PORTLANDCEMENT, portlandcement.getText().toString());
+        editor.putString(METSELZAND, metselzand.getText().toString());
+        editor.putString(STENEN, stenen.getText().toString());
+        editor.putString(OPPERVLAKTE, oppervlakte2.getText().toString());
+        editor.putString(STOOTVOEG, stootvoegB);
+
+        editor.apply();
+
+
+
+        //float lengteSteenStr = Float.parseFloat(lengteSteenInput.getText().toString());
+        //float muurdikteStr = Float.parseFloat(muurdikteInput.getText().toString());
+        //float hoogteSteenStr = Float.parseFloat(hoogteSteenInput.getText().toString());
+        //float lagenmaatStr = Float.parseFloat(lagenmaatInput.getText().toString());
+        //String stootvoegStr = stootvoegInput.getText().toString();
+        //float aantalMStr = Float.parseFloat(aantalMInput.getText().toString());
+        //float aantalStenenStr = Float.parseFloat(aantalStenenInput.getText().toString());
+        //float metselzandStr = Float.parseFloat(metselzand.getText().toString());
+        //float voegzandStr = Float.parseFloat(voegzand.getText().toString());
+        //float portlandcementStr = Float.parseFloat(portlandcement.getText().toString());
+        //float metselcementStr = Float.parseFloat(metselcement.getText().toString());
+        //float stenenStr = Float.parseFloat(stenen.getText().toString());
+        //float oppervlakteStr = Float.parseFloat(oppervlakte2.getText().toString());
+//
+        //editor.putFloat("lengteSteenInput", lengteSteenStr);
+        //editor.putFloat("muurdikteInput", muurdikteStr);
+        //editor.putFloat("hoogteSteenInput", hoogteSteenStr);
+        //editor.putFloat("lagenmaatInput", lagenmaatStr);
+        //editor.putFloat("aantalMInput", aantalMStr);
+        //editor.putFloat("aantalStenenInput", aantalStenenStr);
+        //editor.putFloat("metselzand", metselzandStr);
+        //editor.putFloat("voegzand", voegzandStr);
+        //editor.putFloat("portlandcement", portlandcementStr);
+        //editor.putFloat("metselcement", metselcementStr);
+        //editor.putFloat("stenen", stenenStr);
+        //editor.putFloat("oppervlakte2", oppervlakteStr);
+        //editor.putString("stootvoegInput", stootvoegStr);
+        //editor.commit();
+        //Toast.makeText(MainActivity.this, "Info Opgeslagen", Toast.LENGTH_LONG).show();
+    }
+
+    public void loadData() {
+        SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
+        lengtesteen = sharedPreferences.getString(LENGTESTEEN, "");
+        muurdikte = sharedPreferences.getString(MUURDIKTE, "");
+        hoogtesteen = sharedPreferences.getString(HOOGTESTEEN, "");
+        lagenmaat = sharedPreferences.getString(LAGENMAAT, "");
+        aantalm = sharedPreferences.getString(AANTALM, "0");
+        aantalstenen = sharedPreferences.getString(AANTALSTENEN, "0");
+        metselcementP = sharedPreferences.getString(METSELCEMENT, "");
+        voegzandP = sharedPreferences.getString(VOEGZAND, "");
+        portlandcementP = sharedPreferences.getString(PORTLANDCEMENT, "");
+        metselzandP = sharedPreferences.getString(METSELZAND, "");
+        stenenP = sharedPreferences.getString(STENEN, "");
+        oppervlakteP = sharedPreferences.getString(OPPERVLAKTE, "");
+        stootvoegP = sharedPreferences.getString(STOOTVOEG, "");
+
+    }
+    public void updateViews() {
+        lengteSteenInput.setText(lengtesteen);
+        muurdikteInput.setText(muurdikte);
+        hoogteSteenInput.setText(hoogtesteen);
+        lagenmaatInput.setText(lagenmaat);
+        aantalMInput.setText(aantalm);
+        aantalStenenInput.setText(aantalstenen);
+        metselcement.setText(metselcementP);
+        voegzand.setText(voegzandP);
+        portlandcement.setText(portlandcementP);
+        metselzand.setText(metselzandP);
+        stenen.setText(stenenP);
+        oppervlakte2.setText(oppervlakteP);
+
+    }
+
+    public void calculate() {
+        lengteSteenInput = (EditText) findViewById(R.id.lengteSteenInput);
+        muurdikteInput = (EditText) findViewById(R.id.muurdikteInput);
+        hoogteSteenInput = (EditText) findViewById(R.id.hoogteSteenInput);
+        lagenmaatInput = (EditText) findViewById(R.id.lagenmaatInput);
+        stootvoegInput = (EditText) findViewById(R.id.stootvoegInput);
+        aantalMInput = (EditText) findViewById(R.id.aantalMInput);
+        aantalStenenInput = (EditText) findViewById(R.id.aantalStenenInput);
+
+        float lengteSteenF = Float.parseFloat(lengteSteenInput.getText().toString());
+        float muurdikteF =  Float.parseFloat(muurdikteInput.getText().toString());
+        float hoogteSteenF =  Float.parseFloat(hoogteSteenInput.getText().toString());
+        float lagenmaatF =  Float.parseFloat(lagenmaatInput.getText().toString());
+        float aantalM2F =  Float.parseFloat(aantalMInput.getText().toString());
+        String stootvoegB = stootvoegInput.getText().toString();
+        float aantalStenenF = Float.parseFloat(aantalStenenInput.getText().toString());
+
+        //calculations
+        //float oppervlakte = (aantalStenenF / (1000 / lagenmaatF) * (1000 / lengteSteenF));
+        float lintvoeg = ((lengteSteenF / 1000) * (lagenmaatF - hoogteSteenF) / 1000) * (muurdikteF / 1000);
+        float stootvoeg = ((lagenmaatF / 1000) * (lagenmaatF - hoogteSteenF) / 1000) * (muurdikteF / 1000);
+
+        if (aantalM2F > 0) {
+            float aantalstenen = (1000 / lengteSteenF) * (1000 / lagenmaatF) * aantalM2F;
+
+            float benodigdMetselzand;
+            if (stootvoegB.equals("ja")) {
+                benodigdMetselzand = (float) (((lintvoeg + stootvoeg) * 1.1) * aantalstenen);
+
+            } else {
+                benodigdMetselzand = (float) ((lintvoeg * 1.1) * aantalstenen);
+            }
+
+            float benodigdMetselCement = (benodigdMetselzand * 250) / 25;
+            float aantalStenen2 = (float) (aantalstenen * 1.03);
+            float benodigdVoegzand = 0;
+            if (stootvoegB.equals("ja")) {
+                benodigdVoegzand = (float) (((lintvoeg + stootvoeg) * 1.2) * aantalstenen * 0.15);
+            } else{
+                benodigdVoegzand = (float) ((lintvoeg * 1.2) * aantalstenen * 0.15);
+            }
+            float benodigdPortlandCement = (benodigdVoegzand * 250) / 25;
+
+            //rounding the numbers
+
+            int benodigdPortlandcement2 = (int) Math.ceil(benodigdPortlandCement);
+            int benodigdMetselCement2 = (int) Math.ceil(benodigdMetselCement);
+            int aantalStenen1 = (int) Math.ceil(aantalStenen2);
+            double benodigdMetselzand2 = Math.ceil(benodigdMetselzand * 100) / 100;
+            double benodigdVoegzand2 = Math.ceil(benodigdVoegzand * 100) / 100;
+            //double oppervlakte1 = Math.ceil(oppervlakte * 100) / 100;
+
+
+            //print the numbers to the screen
+
+            metselzand.setText(Float.toString((float) benodigdMetselzand2));
+            voegzand.setText(Float.toString((float) benodigdVoegzand2));
+            portlandcement.setText(Integer.toString(benodigdPortlandcement2));
+            metselcement.setText(Integer.toString(benodigdMetselCement2));
+            stenen.setText(Integer.toString(aantalStenen1));
+            oppervlakte2.setText(Float.toString((float) aantalM2F));
+
+        } else {
+            //float aantalstenen = (1000 / lengteSteenF) * (1000 / lagenmaatF) * aantalM2F;
+            float oppervlakte = aantalStenenF / ((1000 / lagenmaatF) * (1000 / lengteSteenF));
+
+            float benodigdMetselzand;
+            if (stootvoegB.equals("ja")) {
+                benodigdMetselzand = (float) (((lintvoeg + stootvoeg) * 1.1) * aantalStenenF);
+
+            } else {
+                benodigdMetselzand = (float) ((lintvoeg * 1.1) * aantalStenenF);
+            }
+
+            float benodigdMetselCement = (benodigdMetselzand * 250) / 25;
+            float aantalStenen2 = (float) (aantalStenenF * 1.03);
+            float benodigdVoegzand = 0;
+            if (stootvoegB.equals("ja")) {
+                benodigdVoegzand = (float) (((lintvoeg + stootvoeg) * 1.2) * aantalStenenF * 0.15);
+            } else {
+                benodigdVoegzand = (float) ((lintvoeg * 1.2) * aantalStenenF * 0.15);
+            }
+            float benodigdPortlandCement = (benodigdVoegzand * 250) / 25;
+
+            //rounding the numbers
+
+            int benodigdPortlandcement2 = (int) Math.ceil(benodigdPortlandCement);
+            int benodigdMetselCement2 = (int) Math.ceil(benodigdMetselCement);
+            int aantalStenenF2 = (int) ((int) aantalStenenF*1.03);
+            int aantalStenenF3 = (int) Math.ceil(aantalStenenF2);
+            double benodigdMetselzand2 = Math.ceil(benodigdMetselzand * 100) / 100;
+            double benodigdVoegzand2 = Math.ceil(benodigdVoegzand * 100) / 100;
+            double oppervlakte1 = Math.ceil(oppervlakte * 100) / 100;
+
+
+            //print the numbers to the screen
+
+            metselzand.setText(Float.toString((float) benodigdMetselzand2));
+            voegzand.setText(Float.toString((float) benodigdVoegzand2));
+            portlandcement.setText(Integer.toString(benodigdPortlandcement2));
+            metselcement.setText(Integer.toString(benodigdMetselCement2));
+            stenen.setText(Integer.toString(aantalStenenF3));
+            oppervlakte2.setText(Float.toString((float) oppervlakte1));
+        }
+
+}}
         
