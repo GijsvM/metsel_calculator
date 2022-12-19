@@ -10,6 +10,78 @@
         android:layout_height="match_parent">
 
         <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="10dp"
+            android:text="st"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/aantalStenenInput"
+            app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="69dp"
+            android:layout_marginEnd="10dp"
+            android:text="m2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/aantalMInput"
+            app:layout_constraintTop_toBottomOf="@+id/textView9" />
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="10dp"
+            android:text="mm"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/lagenmaatInput"
+            app:layout_constraintTop_toBottomOf="@+id/textView11" />
+
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="10dp"
+            android:text="mm"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/hoogteSteenInput"
+            app:layout_constraintTop_toBottomOf="@+id/textView12" />
+
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="10dp"
+            android:text="mm"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/muurdikteInput"
+            app:layout_constraintTop_toBottomOf="@+id/textView13" />
+
+        <TextView
+            android:id="@+id/textView13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="19dp"
+            android:layout_marginEnd="10dp"
+            android:text="mm"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/lengteSteenInput"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
             android:id="@+id/lengteSteen"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -70,7 +142,7 @@
             android:layout_width="120dp"
             android:layout_height="32dp"
             android:layout_marginTop="13dp"
-            android:layout_marginEnd="60dp"
+            android:layout_marginEnd="40dp"
             android:ems="10"
             android:hint="m2"
             android:inputType="numberSigned"
@@ -84,7 +156,7 @@
             android:layout_width="120dp"
             android:layout_height="32dp"
             android:layout_marginTop="13dp"
-            android:layout_marginEnd="60dp"
+            android:layout_marginEnd="40dp"
             android:ems="10"
             android:hint="mm"
             android:inputType="numberSigned"
@@ -98,7 +170,7 @@
             android:layout_width="120dp"
             android:layout_height="32dp"
             android:layout_marginTop="15dp"
-            android:layout_marginEnd="60dp"
+            android:layout_marginEnd="40dp"
             android:ems="10"
             android:hint="mm"
             android:inputType="numberSigned"
@@ -112,7 +184,7 @@
             android:layout_width="120dp"
             android:layout_height="32dp"
             android:layout_marginTop="12dp"
-            android:layout_marginEnd="60dp"
+            android:layout_marginEnd="40dp"
             android:ems="10"
             android:hint="mm"
             android:inputType="numberSigned"
@@ -126,7 +198,7 @@
             android:layout_width="120dp"
             android:layout_height="32dp"
             android:layout_marginTop="12dp"
-            android:layout_marginEnd="60dp"
+            android:layout_marginEnd="40dp"
             android:ems="10"
             android:hint="mm"
             android:inputType="numberSigned"
@@ -161,10 +233,10 @@
 
         <EditText
             android:id="@+id/stootvoegInput"
-            android:layout_width="120dp"
+            android:layout_width="150dp"
             android:layout_height="32dp"
             android:layout_marginTop="12dp"
-            android:layout_marginEnd="60dp"
+            android:layout_marginEnd="10dp"
             android:ems="10"
             android:hint="ja / nee"
             android:inputType="textPersonName"
@@ -189,7 +261,7 @@
             android:layout_width="120dp"
             android:layout_height="32dp"
             android:layout_marginTop="12dp"
-            android:layout_marginEnd="60dp"
+            android:layout_marginEnd="40dp"
             android:ems="10"
             android:hint="aantal"
             android:inputType="numberSigned"

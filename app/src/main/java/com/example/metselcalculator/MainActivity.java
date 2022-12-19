@@ -2,13 +2,18 @@ package com.example.metselcalculator;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import java.text.BreakIterator;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -33,7 +38,35 @@ public class MainActivity extends AppCompatActivity {
     private TextView metselcement;
     private TextView stenen;
     private TextView oppervlakte2;
+    public static final String SHARED_PREFS = "sharedPrefs";
 
+    public static final String LENGTESTEEN = "lengtesteen";
+    public static final String MUURDIKTE = "muurdikte";
+    public static final String HOOGTESTEEN = "hoogtesteen";
+    public static final String LAGENMAAT = "lagenmaat";
+    public static final String AANTALM = "aantalm";
+    public static final String AANTALSTENEN = "aantalstenen";
+    public static final String METSELZAND = "metselzand";
+    public static final String VOEGZAND = "voegzand";
+    public static final String PORTLANDCEMENT = "portlandcement";
+    public static final String METSELCEMENT = "metselcement";
+    public static final String STENEN = "stenen";
+    public static final String OPPERVLAKTE = "oppervlakte";
+    public static final String STOOTVOEG = "stootvoeg";
+
+    private String lengtesteen;
+    private String muurdikte;
+    private String hoogtesteen;
+    private String lagenmaat;
+    private String aantalm;
+    private String aantalstenen;
+    private String metselzandP;
+    private String voegzandP;
+    private String portlandcementP;
+    private String metselcementP;
+    private String stenenP;
+    private String oppervlakteP;
+    private String stootvoegP;
 
     Button berekenButton;
 
@@ -119,6 +152,84 @@ public class MainActivity extends AppCompatActivity {
 
 
                 calculate();
+                saveData();
+                loadData();
+                updateViews();
+            }
+
+            public void saveData() {
+
+                SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+
+                editor.putString(LENGTESTEEN, lengteSteenInput.getText().toString());
+                editor.putString(MUURDIKTE, muurdikteInput.getText().toString());
+                editor.putString(HOOGTESTEEN, hoogteSteenInput.getText().toString());
+                editor.putString(LAGENMAAT, lagenmaatInput.getText().toString());
+                editor.putString(AANTALM, aantalMInput.getText().toString());
+                editor.putString(AANTALSTENEN, aantalStenenInput.getText().toString());
+                editor.putString(METSELCEMENT, metselcement.getText().toString());
+                editor.putString(VOEGZAND, voegzand.getText().toString());
+                editor.putString(PORTLANDCEMENT, portlandcement.getText().toString());
+                editor.putString(METSELZAND, metselzand.getText().toString());
+                editor.putString(STENEN, stenen.getText().toString());
+                editor.putString(OPPERVLAKTE, oppervlakte2.getText().toString());
+                editor.putString(STOOTVOEG, stootvoegB);
+
+                editor.apply();
+
+
+
+                //float lengteSteenStr = Float.parseFloat(lengteSteenInput.getText().toString());
+                //float muurdikteStr = Float.parseFloat(muurdikteInput.getText().toString());
+                //float hoogteSteenStr = Float.parseFloat(hoogteSteenInput.getText().toString());
+                //float lagenmaatStr = Float.parseFloat(lagenmaatInput.getText().toString());
+                //String stootvoegStr = stootvoegInput.getText().toString();
+                //float aantalMStr = Float.parseFloat(aantalMInput.getText().toString());
+                //float aantalStenenStr = Float.parseFloat(aantalStenenInput.getText().toString());
+                //float metselzandStr = Float.parseFloat(metselzand.getText().toString());
+                //float voegzandStr = Float.parseFloat(voegzand.getText().toString());
+                //float portlandcementStr = Float.parseFloat(portlandcement.getText().toString());
+                //float metselcementStr = Float.parseFloat(metselcement.getText().toString());
+                //float stenenStr = Float.parseFloat(stenen.getText().toString());
+                //float oppervlakteStr = Float.parseFloat(oppervlakte2.getText().toString());
+//
+                //editor.putFloat("lengteSteenInput", lengteSteenStr);
+                //editor.putFloat("muurdikteInput", muurdikteStr);
+                //editor.putFloat("hoogteSteenInput", hoogteSteenStr);
+                //editor.putFloat("lagenmaatInput", lagenmaatStr);
+                //editor.putFloat("aantalMInput", aantalMStr);
+                //editor.putFloat("aantalStenenInput", aantalStenenStr);
+                //editor.putFloat("metselzand", metselzandStr);
+                //editor.putFloat("voegzand", voegzandStr);
+                //editor.putFloat("portlandcement", portlandcementStr);
+                //editor.putFloat("metselcement", metselcementStr);
+                //editor.putFloat("stenen", stenenStr);
+                //editor.putFloat("oppervlakte2", oppervlakteStr);
+                //editor.putString("stootvoegInput", stootvoegStr);
+                //editor.commit();
+                //Toast.makeText(MainActivity.this, "Info Opgeslagen", Toast.LENGTH_LONG).show();
+            }
+
+            public void loadData() {
+                SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
+                lengtesteen = sharedPreferences.getString(LENGTESTEEN, "");
+                muurdikte = sharedPreferences.getString(MUURDIKTE, "");
+                hoogtesteen = sharedPreferences.getString(HOOGTESTEEN, "");
+                lagenmaat = sharedPreferences.getString(LAGENMAAT, "");
+                aantalm = sharedPreferences.getString(AANTALM, "0");
+                aantalstenen = sharedPreferences.getString(AANTALSTENEN, "0");
+                metselcementP = sharedPreferences.getString(METSELCEMENT, "");
+                voegzandP = sharedPreferences.getString(VOEGZAND, "");
+                portlandcementP = sharedPreferences.getString(PORTLANDCEMENT, "");
+                metselzandP = sharedPreferences.getString(METSELZAND, "");
+                stenenP = sharedPreferences.getString(STENEN, "");
+                oppervlakteP = sharedPreferences.getString(OPPERVLAKTE, "");
+                stootvoegP = sharedPreferences.getString(STOOTVOEG, "");
+
+            }
+            public void updateViews() {
+                lengteSteenInput.setText(lengtesteen);
             }
 
             public void calculate() {
