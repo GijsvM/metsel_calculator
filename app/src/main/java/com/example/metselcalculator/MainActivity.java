@@ -176,41 +176,10 @@ public class MainActivity extends AppCompatActivity {
         editor.putString(METSELZAND, metselzand.getText().toString());
         editor.putString(STENEN, stenen.getText().toString());
         editor.putString(OPPERVLAKTE, oppervlakte2.getText().toString());
-        editor.putString(STOOTVOEG, stootvoegB);
+        editor.putString(STOOTVOEG, stootvoegInput.getText().toString());
 
         editor.apply();
 
-
-
-        //float lengteSteenStr = Float.parseFloat(lengteSteenInput.getText().toString());
-        //float muurdikteStr = Float.parseFloat(muurdikteInput.getText().toString());
-        //float hoogteSteenStr = Float.parseFloat(hoogteSteenInput.getText().toString());
-        //float lagenmaatStr = Float.parseFloat(lagenmaatInput.getText().toString());
-        //String stootvoegStr = stootvoegInput.getText().toString();
-        //float aantalMStr = Float.parseFloat(aantalMInput.getText().toString());
-        //float aantalStenenStr = Float.parseFloat(aantalStenenInput.getText().toString());
-        //float metselzandStr = Float.parseFloat(metselzand.getText().toString());
-        //float voegzandStr = Float.parseFloat(voegzand.getText().toString());
-        //float portlandcementStr = Float.parseFloat(portlandcement.getText().toString());
-        //float metselcementStr = Float.parseFloat(metselcement.getText().toString());
-        //float stenenStr = Float.parseFloat(stenen.getText().toString());
-        //float oppervlakteStr = Float.parseFloat(oppervlakte2.getText().toString());
-//
-        //editor.putFloat("lengteSteenInput", lengteSteenStr);
-        //editor.putFloat("muurdikteInput", muurdikteStr);
-        //editor.putFloat("hoogteSteenInput", hoogteSteenStr);
-        //editor.putFloat("lagenmaatInput", lagenmaatStr);
-        //editor.putFloat("aantalMInput", aantalMStr);
-        //editor.putFloat("aantalStenenInput", aantalStenenStr);
-        //editor.putFloat("metselzand", metselzandStr);
-        //editor.putFloat("voegzand", voegzandStr);
-        //editor.putFloat("portlandcement", portlandcementStr);
-        //editor.putFloat("metselcement", metselcementStr);
-        //editor.putFloat("stenen", stenenStr);
-        //editor.putFloat("oppervlakte2", oppervlakteStr);
-        //editor.putString("stootvoegInput", stootvoegStr);
-        //editor.commit();
-        //Toast.makeText(MainActivity.this, "Info Opgeslagen", Toast.LENGTH_LONG).show();
     }
 
     public void loadData() {
@@ -243,7 +212,7 @@ public class MainActivity extends AppCompatActivity {
         metselzand.setText(metselzandP);
         stenen.setText(stenenP);
         oppervlakte2.setText(oppervlakteP);
-
+        stootvoegInput.setText(stootvoegP);
     }
 
     public void calculate() {
