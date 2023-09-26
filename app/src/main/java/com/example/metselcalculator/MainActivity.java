@@ -89,6 +89,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+                //checken of alles in is gevuld
+
                 if (TextUtils.isEmpty(lengteSteenInput.getText().toString())){
                     lengteSteenInput.setError("vul aub alles in");
                     return;
@@ -161,6 +163,8 @@ public class MainActivity extends AppCompatActivity {
 
     public void saveData() {
 
+        //slaat alle nummers op
+
         SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
 
@@ -183,6 +187,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void loadData() {
+
+        //zet alle opgeslagen nummers in een var
         SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
         lengtesteen = sharedPreferences.getString(LENGTESTEEN, "");
         muurdikte = sharedPreferences.getString(MUURDIKTE, "");
@@ -200,6 +206,8 @@ public class MainActivity extends AppCompatActivity {
 
     }
     public void updateViews() {
+
+        //zet alle vars op het scherm
         lengteSteenInput.setText(lengtesteen);
         muurdikteInput.setText(muurdikte);
         hoogteSteenInput.setText(hoogtesteen);
@@ -216,6 +224,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void calculate() {
+
+        //alle berekeningen delen: / keer: * en + -
         lengteSteenInput = (EditText) findViewById(R.id.lengteSteenInput);
         muurdikteInput = (EditText) findViewById(R.id.muurdikteInput);
         hoogteSteenInput = (EditText) findViewById(R.id.hoogteSteenInput);
@@ -299,7 +309,7 @@ public class MainActivity extends AppCompatActivity {
             }
             float benodigdPortlandCement = (benodigdVoegzand * 250) / 25;
 
-            //rounding the numbers
+            //rond de nummers af
 
             int benodigdPortlandcement2 = (int) Math.ceil(benodigdPortlandCement);
             int benodigdMetselCement2 = (int) Math.ceil(benodigdMetselCement);
@@ -310,7 +320,7 @@ public class MainActivity extends AppCompatActivity {
             double oppervlakte1 = Math.ceil(oppervlakte * 100) / 100;
 
 
-            //print the numbers to the screen
+            //print de nummers op het scherm
 
             metselzand.setText(Float.toString((float) benodigdMetselzand2));
             voegzand.setText(Float.toString((float) benodigdVoegzand2));
