@@ -1,6 +1,2 @@
 # metsel_calculator
-
-![alt text](https://github.com/SharkieCodes/metsel_calculator/blob/master/Screenshot_2023-01-04-13-18-08-226-edit_com.example.metselcalculator.jpg)
-
-# Errors
-none, the project is finished.
+Een app gemaakt om m'n vader te helpen met het berekenen van de hoeveelheden die nodig zijn om een muur te metselen.
